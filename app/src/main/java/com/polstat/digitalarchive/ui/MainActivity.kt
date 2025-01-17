@@ -1,11 +1,18 @@
 package com.polstat.digitalarchive.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.appbar.MaterialToolbar
+import com.polstat.digitalarchive.R
 import com.polstat.digitalarchive.databinding.ActivityMainBinding
 import com.polstat.digitalarchive.ui.adapters.ArchiveAdapter
+import com.polstat.digitalarchive.utils.SessionManager
 import com.polstat.digitalarchive.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         setupRecyclerView()
         setupObservers()
         setupSearch()
@@ -27,6 +37,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.loadArchives()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_profile -> {
+                startActivity(ProfileActivity.createIntent(this))
+                true
+            }
+            R.id.menu_logout -> {
+                SessionManager.logout()
+                StisToast.showSuccess(this, "Logout successful!")
+                startActivity(LoginActivity.createIntent(this))
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -54,5 +86,21 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean = false
         })
+    }
+
+    companion object {
+        // Tambahkan method createIntent
+        fun createIntent(context: Context): Intent {
+            return Intent(context, MainActivity::class.java)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Refresh current user data when returning to MainActivity
+        SessionManager.getCurrentUser()?.let { user ->
+            viewModel.getCurrentUser(user.email)
+        }
+        viewModel.loadArchives()
     }
 }

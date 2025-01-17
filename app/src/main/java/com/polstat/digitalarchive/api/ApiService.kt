@@ -20,6 +20,9 @@ interface ApiService {
     @GET("archives/{id}")
     suspend fun getArchiveById(@Path("id") id: Long): Archive
 
+    @PUT("archives/{id}")
+    suspend fun updateArchive(@Path("id") id: Long, @Body archive: Archive): Archive
+
     @GET("archives/search")
     suspend fun searchArchives(@Query("keyword") keyword: String): List<Archive>
 
@@ -28,6 +31,9 @@ interface ApiService {
 
     @DELETE("archives/{id}")
     suspend fun deleteArchive(@Path("id") id: Long)
+
+    @GET("users/current")
+    suspend fun getCurrentUser(@Query("email") email: String): User
 
     @PUT("users/{userId}/profile")
     suspend fun updateProfile(@Path("userId") userId: Long, @Body user: User): User

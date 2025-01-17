@@ -1,27 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@color/stis_white"
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/etEmail"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="276dp"
+        android:layout_height="193dp"
+        app:srcCompat="@drawable/lambang_politeknik_statistika_stis" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digital Archive STIS"
+        android:textSize="24sp"
+        android:textColor="@color/stis_blue"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/STIS.EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/etPassword"
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/STIS.EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        android:layout_marginBottom="24dp">
 
-    <Button
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        style="@style/STIS.Button"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:text="Login" />
 
@@ -29,8 +62,8 @@
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="Don't have an account? Register" />
+        android:text="Don't have an account? Register"
+        android:textColor="@color/stis_blue"/>
 
 </LinearLayout>

@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="seed">#6750A4</color>
-    <color name="md_theme_light_primary">#6750A4</color>
-    <color name="md_theme_light_onPrimary">#FFFFFF</color>
-    <color name="md_theme_light_surface">#FEF7FF</color>
-    <color name="md_theme_light_onSurface">#1D1B20</color>
-    <color name="md_theme_dark_primary">#D0BCFF</color>
-    <color name="md_theme_dark_onPrimary">#381E72</color>
-    <color name="md_theme_dark_surface">#141218</color>
-    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+    <!-- STIS Colors -->
+    <color name="stis_blue">#003D79</color>
+    <color name="stis_blue_light">#0066CC</color>
+    <color name="stis_gold">#FFD700</color>
+    <color name="stis_gray">#F5F5F5</color>
+    <color name="stis_text_primary">#212121</color>
+    <color name="stis_text_secondary">#757575</color>
+    <color name="stis_white">#FFFFFF</color>
+
+    <!-- Light Theme Colors -->
+    <color name="md_theme_light_primary">@color/stis_blue</color>
+    <color name="md_theme_light_onPrimary">@color/stis_white</color>
+    <color name="md_theme_light_surface">@color/stis_white</color>
+    <color name="md_theme_light_onSurface">@color/stis_text_primary</color>
+    <color name="md_theme_light_surfaceVariant">@color/stis_gray</color>
+    <color name="md_theme_light_onSurfaceVariant">@color/stis_text_secondary</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="md_theme_dark_primary">@color/stis_blue_light</color>
+    <color name="md_theme_dark_onPrimary">@color/stis_white</color>
+    <color name="md_theme_dark_surface">#121212</color>
+    <color name="md_theme_dark_onSurface">@color/stis_white</color>
+    <color name="md_theme_dark_surfaceVariant">#2F2F2F</color>
+    <color name="md_theme_dark_onSurfaceVariant">#E1E1E1</color>
+    <color name="error_color">#B00020</color>
 </resources>

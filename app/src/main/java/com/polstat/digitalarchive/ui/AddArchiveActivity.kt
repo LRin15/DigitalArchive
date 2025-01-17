@@ -3,6 +3,7 @@ package com.polstat.digitalarchive.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.polstat.digitalarchive.databinding.ActivityAddArchiveBinding
@@ -19,17 +20,35 @@ class AddArchiveActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnSave.setOnClickListener {
-            val archive = Archive(
-                id = null,
-                title = binding.etTitle.text.toString(),
-                description = binding.etDescription.text.toString(),
-                archiveType = binding.etType.text.toString(),
-                fileUrl = binding.etFileUrl.text.toString(),
-                createdAt = null
-            )
-            viewModel.createArchive(archive)
-            finish()
+            if (validateInputs()) {
+                val archive = Archive(
+                    id = null,
+                    title = binding.etTitle.text.toString().trim(),
+                    description = binding.etDescription.text.toString().trim(),
+                    archiveType = binding.etType.text.toString().trim(),
+                    fileUrl = binding.etFileUrl.text.toString().trim(),
+                    createdAt = null
+                )
+
+                viewModel.createArchive(archive)
+                StisToast.showSuccess(this, "Archive add successful!")
+
+                // Navigate back to MainActivity
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            } else {
+                StisToast.showInfo(this, "Please fill all required fields")
+            }
         }
+    }
+
+    private fun validateInputs(): Boolean {
+        return !(binding.etTitle.text.toString().trim().isEmpty() ||
+                binding.etDescription.text.toString().trim().isEmpty() ||
+                binding.etType.text.toString().trim().isEmpty() ||
+                binding.etFileUrl.text.toString().trim().isEmpty())
     }
 
     companion object {

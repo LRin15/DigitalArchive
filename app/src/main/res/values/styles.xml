@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="STIS.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@color/stis_blue</item>
+        <item name="android:textColor">@color/stis_white</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="STIS.EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/stis_blue</item>
+        <item name="hintTextColor">@color/stis_blue</item>
+    </style>
+
+    <style name="STIS.PopupMenu" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:textColor">@color/stis_text_primary</item>
+        <item name="android:itemBackground">@color/stis_white</item>
+    </style>
+</resources>

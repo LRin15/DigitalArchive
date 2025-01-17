@@ -24,9 +24,15 @@ class Repository {
 
     suspend fun createArchive(archive: Archive) = apiService.createArchive(archive)
 
+    suspend fun updateArchive(id: Long, archive: Archive) = apiService.updateArchive(id, archive)
+
     suspend fun deleteArchive(id: Long) = apiService.deleteArchive(id)
 
     suspend fun updateProfile(userId: Long, user: User) = apiService.updateProfile(userId, user)
+
+    suspend fun getCurrentUser(email: String): User {
+        return apiService.getCurrentUser(email)  // Tambahkan endpoint ini di ApiService
+    }
 
     suspend fun changePassword(userId: Long, oldPassword: String, newPassword: String) =
         apiService.changePassword(userId, oldPassword, newPassword)

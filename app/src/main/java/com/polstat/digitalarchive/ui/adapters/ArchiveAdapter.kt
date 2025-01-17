@@ -34,7 +34,10 @@ class ArchiveAdapter(
             binding.apply {
                 tvTitle.text = archive.title
                 tvDescription.text = archive.description
-                root.setOnClickListener { onItemClick(archive) }
+                root.setOnClickListener {
+                    // Pastikan archive.id tidak null sebelum memanggil callback
+                    archive.id?.let { id -> onItemClick(archive) }
+                }
             }
         }
     }

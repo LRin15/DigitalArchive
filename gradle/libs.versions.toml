@@ -10,6 +10,9 @@ androidxTestEspresso = "3.5.1"
 retrofit = "2.9.0"
 kotlinxCoroutines = "1.7.3"
 lifecycleVersion = "2.7.0"
+coordinatorLayout = "1.2.0"
+activity = "1.9.3"
+gson = "2.10.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -25,6 +28,9 @@ retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleVersion" }
+androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorLayout" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 [plugins]
 android-application = { id = "com.android.application", version = "8.7.1" }

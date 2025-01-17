@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkModule {
-    private const val BASE_URL = "http://localhost:8080/"
+    private const val BASE_URL = "https://792b-103-123-250-164.ngrok-free.app"
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(AuthInterceptor())

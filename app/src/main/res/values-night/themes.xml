@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Base.Theme.DigitalArchive" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Dark mode colors -->
@@ -5,7 +6,16 @@
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
         <item name="colorSurface">@color/md_theme_dark_surface</item>
         <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_dark_onSurfaceVariant</item>
+
+        <!-- Status bar configuration -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Navigation bar configuration -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.DigitalArchive" parent="Base.Theme.DigitalArchive" />
 </resources>
